@@ -1,12 +1,13 @@
 import $ from 'jquery';
 
 /**
- * Ждет загрузки пачки картинок.
+ * Waits until images are loaded
  *
  * @param $images jQuery collection of images
- * @returns {Promise} jQuery Deferred Promise Object
  * @example
+ * // Show alert message after images loading
  * $.when($('img')).done(function() { alert('Loaded'); });
+ * @returns {Promise} jQuery Deferred Promise Object
  */
 function onImagesLoad($images) {
     const mainDeferred = $.Deferred(),
