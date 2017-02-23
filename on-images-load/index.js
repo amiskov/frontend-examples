@@ -12,7 +12,8 @@ function onImagesLoad($images) {
         imgPromises.push(imgDeferred.promise());
     });
 
-    // С помощью .apply преобразуем массив промисов в аргументы для when
+    // $.when ждет промисов в аргументах.
+    // У нас есть массив промисов для каждой картинки и через .apply мы каждый передадим как аргумент:
     $.when.apply($, imgPromises).done(function () {
         mainDeferred.resolve();
     });
