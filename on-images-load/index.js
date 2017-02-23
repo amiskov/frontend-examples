@@ -6,7 +6,7 @@ import $ from 'jquery';
  * @param $images jQuery collection of images
  * @example
  * // Show alert message after images loading
- * $.when($('img')).done(function() { alert('Loaded'); });
+ * onImagesLoad($('img')).done(function() { alert('Loaded'); });
  * @returns {Promise} jQuery Deferred Promise Object
  */
 function onImagesLoad($images) {
