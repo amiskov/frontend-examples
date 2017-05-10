@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <button id="btn">Click</button>
+    <script>
+    const btn = {
+        init(idSelector) {
+            this.$el = $(idSelector);
+            this.events();
+        },
+
+        events() {
+            this.$el.on('click', this.clickHandler(this.$el));
+            // передали в clickHandler только то, что ему нужно из текущего объекта (из `this`)
+            // this.clickHandler(this.$el) — запустится и вернет функцию, которая и будет обработчиком
+        },
+
+        // Каррирование (карринг) — закрепление аргументов за функцией.
+        clickHandler: $el => ev => { // получаем то, что передали и возвращаем функцию
+            console.log(ev);
+            console.log($el); // $el берем из замыкания
+        },
+
+        // Это же в ES5 синтаксисе
+        clickHandlerES5: function($el) { // обертка для сохранения аргументов
+            // Получили $el, закрепили ее в этом лексическом окружении (сохранили в замыкании)
+            // [LexicalEnvironment].$el <- хранится тут
+            return function(ev) { // непосредственно функция обработчик
+                console.log(ev);
+                console.log($el); // достаем из внешнего окружения
+            }
+        }
+    };
+
+    btn.init('#btn');
+    </script>
+</body>
+
+</html>
