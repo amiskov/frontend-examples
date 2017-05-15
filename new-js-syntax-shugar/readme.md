@@ -76,11 +76,11 @@ console.log(obj.length); // => 30
 Бывает удобно, когда в функцию приходит параметр и нужно что-то сделать с объектом, где есть свойство с таким же именем:
 
 ```js
-handleChange = type => ev => { // пусть type='user', например
+handleChange = type => ev => { // если придет, например, type со значением 'user'
     const {value} = ev.target;
     // ...
     this.setState({
-        [type]: value // будет `user: value`
+        [type]: value // ...то получим `user: value`
     });
 }
 ```
