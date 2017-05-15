@@ -68,7 +68,8 @@ console.log(obj.length); // => 30
 
 ```js
 let someString = 'length';
-const obj = { [someString]: 30 }; // возьмем значение `somString` и запишем в итоге `length: 30`
+const obj = { [someString]: 30 }; // возьмем значение `somString` и запишем в итоге `length: 30`.
+                                  // Аналогично `obj[someString] = 30`.
 console.log(obj.length); // => 30
 ```
 
