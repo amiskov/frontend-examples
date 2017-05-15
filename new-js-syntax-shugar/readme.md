@@ -83,3 +83,5 @@ handleChange = type => ev => { // пусть type='user', например
     });
 }
 ```
+
+Есть [подробня статья](http://www.benmvp.com/learning-es6-enhanced-object-literals/) про это.
